@@ -207,6 +207,49 @@ Confirmación Teórica: El algoritmo MERGE es parte de MergeSort, y su complejid
 
 Por lo tanto, T(n) = O(n).
 
+## Tarea: Análisis de Complejidad Asintótica
+
+![image](https://github.com/user-attachments/assets/51a7eb74-121a-44c6-a15c-3542d63f8ee0)
+
+
+1. Comprobación: ( f(n) \in O(g(n)) )
+Dado:
+( f(n) = n^3 + 9n^2 \log(n) )
+( g(n) = n^2 \log(n) )
+Definición de ( O(g(n)) ): ( f(n) \in O(g(n)) ) si existen constantes ( c > 0 ) y ( n_0 > 0 ) tales que para todo ( n \geq n_0 ), ( f(n) \leq c \cdot g(n) ).
+Análisis:
+Comparar ( f(n) ) y ( g(n) ): [ f(n) = n^3 + 9n^2 \log(n), \quad g(n) = n^2 \log(n) ] Dividimos ( f(n) ) entre ( g(n) ): [ \frac{f(n)}{g(n)} = \frac{n^3 + 9n^2 \log(n)}{n^2 \log(n)} = \frac{n^3}{n^2 \log(n)} + \frac{9n^2 \log(n)}{n^2 \log(n)} = \frac{n}{\log(n)} + 9 ]
+Comportamiento para ( n ) grande:
+El término dominante en ( f(n) ) es ( n^3 ), mientras que en ( g(n) ) es ( n^2 \log(n) ).
+El cociente ( \frac{n}{\log(n)} + 9 ) crece sin límite a medida que ( n \to \infty ), porque ( \frac{n}{\log(n)} \to \infty ).
+Conclusión: No existe una constante ( c ) tal que ( f(n) \leq c \cdot g(n) ) para todo ( n ) suficientemente grande, ya que ( f(n) ) crece más rápido que ( g(n) ). Por lo tanto: [ f(n) \notin O(g(n)) ]
+2. Comprobación: ( f(n) \in O(n^2) )
+Dado:
+( f(n) = n^3 + 9n^2 \log(n) )
+Análisis:
+Comparar ( f(n) ) con ( n^2 ): [ \frac{f(n)}{n^2} = \frac{n^3 + 9n^2 \log(n)}{n^2} = n + 9 \log(n) ]
+Comportamiento para ( n ) grande:
+( n + 9 \log(n) \to \infty ) cuando ( n \to \infty ), porque el término dominante es ( n ).
+Cnclusión: No existe una constante ( c ) tal que ( n^3 + 9n^2 \log(n) \leq c \cdot n^2 ), ya que el término ( n^3 ) crece más rápido que ( n^2 ). Por lo tanto: [ f(n) \notin O(n^2) ]
+3. Demostración Formal: Relación entre ( f(n) = 2^n ) y ( g(n) = 2^{2n} )
+Dado:
+( f(n) = 2^n )
+( g(n) = 2^{2n} )
+3.1. ¿Es ( f(n) \in O(g(n)) )?
+Análisis:
+Comparar ( f(n) ) y ( g(n) ): [ g(n) = 2^{2n} = (2^2)^n = 4^n ] [ \frac{f(n)}{g(n)} = \frac{2^n}{4^n} = \left(\frac{2}{4}\right)^n = \left(\frac{1}{2}\right)^n ]
+Comportamiento para ( n ) grande:
+( \left(\frac{1}{2}\right)^n \to 0 ) cuando ( n \to \infty ), ya que ( \frac{1}{2} < 1 ).
+Prueba formal: Buscamos ( c ) y ( n_0 ) tales que ( 2^n \leq c \cdot 4^n ): [ 2^n \leq c \cdot 4^n \implies \left(\frac{1}{2}\right)^n \leq c ] Tomamos ( c = 1 ), entonces: [ \left(\frac{1}{2}\right)^n \leq 1 ] Esto es cierto para todo ( n \geq 0 ). Por lo tanto, con ( c = 1 ) y ( n_0 = 0 ): [ f(n) \in O(g(n)) ]
+3.2. ¿Es ( g(n) \in O(f(n)) )?
+Análisis:
+Comparar ( g(n) ) y ( f(n) ): [ \frac{g(n)}{f(n)} = \frac{4^n}{2^n} = 2^n ]
+Comportamiento para ( n ) grande:
+( 2^n \to \infty ) cuando ( n \to \infty ).
+Prueba formal: Buscamos ( c ) y ( n_0 ) tales que ( 4^n \leq c \cdot 2^n ): [ 2^n \leq c ] Como ( 2^n ) crece sin límite, no existe una constante ( c ) que satisfaga esta desigualdad para todo ( n ) suficientemente grande. Por lo tanto: [ g(n) \notin O(f(n)) ]
+Conclusión:
+( f(n) \in O(g(n)) ), porque ( 2^n ) crece más lento que ( 4^n ).
+( g(n) \notin O(f(n)) ), porque ( 4^n ) crece más rápido que ( 2^n ).
 
 
 
