@@ -117,9 +117,101 @@ Tarea: Desarrollar y actualizar casos en el repositorio de GitHub.Propósito: Pr
 
 
 
+## Tarea: Análisis del Algoritmo Merge
+    def merge(A, p, q, r):
+    # Longitudes de los subarreglos
+    nL = q - p + 1  # Longitud de A[p:q]
+    nR = r - q       # Longitud de A[q+1:r]
+    
+    # Crear arreglos auxiliares L y R
+    L = [0] * nL
+    R = [0] * nR
+    
+    # Copiar datos a L y R
+    for i in range(nL):
+        L[i] = A[p + i]
+    
+    for j in range(nR):
+        R[j] = A[q + 1 + j]
+    
+    # Fusionar L y R de vuelta a A[p:r]
+    i = 0  # Índice para L
+    j = 0  # Índice para R
+    k = p  # Índice para A
+    
+    # Mientras haya elementos en L y R, copiar el menor
+    while i < nL and j < nR:
+        if L[i] <= R[j]:
+            A[k] = L[i]
+            i += 1
+        else:
+            A[k] = R[j]
+            j += 1
+        k += 1
+    
+    # Copiar los elementos restantes de L, si los hay
+    while i < nL:
+        A[k] = L[i]
+        i += 1
+        k += 1
+    
+    # Copiar los elementos restantes de R, si los hay
+    while j < nR:
+        A[k] = R[j]
+        j += 1
+        k += 1
+
+    # Ejemplo de uso
+    A = [2, 4, 5, 7, 1, 2, 3, 6]
+    p, q, r = 0, 3, 7
+    print("Arreglo antes:", A)
+    merge(A, p, q, r)
+    print("Arreglo después:", A)  # Salida: [1, 2, 2, 3, 4, 5, 6, 7]
+2. Identificación de las Recurrencias
+
+   
+nL = q - p + 1: longitud del subarreglo A[p:q].
+nR = r - q: longitud del subarbyggingA[q+1:r].
+Total de elementos a procesar: n = r - p + 1 = nL + nR.
+Pasos del algoritmo:
+Inicialización (líneas 1-3): Cálculo de nL y nR, y creación de arreglos L y R. Esto toma O(nL + nR) = O(n).
+Copias iniciales (líneas 5-7): Copiar A[p:q] a L (O(nL)) y A[q+1:r] a R (O(nR)). Total: O(n).
+Fusionado (líneas 12-19): Comparar y copiar elementos de L y R a A[p:r].
+Primer bucle while (líneas 12-19): Se ejecuta nL + nR = n veces, ya que cada iteración incrementa i o j. Cada iteración es O(1). Total: O(n).
+Copias restantes (líneas 20-26): Copiar los elementos sobrantes de L o R. Esto también toma O(nL + nR) = O(n).
+Recurrencia:
+El algoritmo no es recursivo, por lo que no hay una recurrencia en el sentido tradicional. En cambio, el tiempo de ejecución T(n) es directamente proporcional al número de elementos procesados:
+T(n) = O(n), donde n = r - p + 1.
+
+4. Obtención de la Ecuación General
+Dado que MERGE no es recursivo, no hay una ecuación de recurrencia que resolver. El tiempo total se calcula sumando el costo de cada paso:
+Inicialización: O(n).
+Copias a L y R: O(n).
+Fusionado: O(n).
+Copias restantes: O(n).
+Suma total: O(n) + O(n) + O(n) + O(n) = O(n).
+Por lo tanto, la ecuación general del tiempo de ejecución es:
+T(n) = O(n), donde n = r - p + 1.
+5. Demostración
+Dmostremos que T(n) = O(n):
+Análisis 
+Cada operación (comparaciones, asignaciones) dentro de los bucles es O(1).
+El número total de iteraciones en todos los bucles es proporcional a n:
+Primer bucle while: Exactly n iteraciones (cada iteración incrementa i o j, y hay nL + nR = n elementos).
+Segundo y tercer bucles while: Cubren los elementos restantes de L o R, pero no se solapan con el primer bucle, sumando un total de n operaciones.
+Ejemplo Empírico: Para el ejemplo A = [2, 4, 5, 7, 1, 2, 3, 6], con p = 0, q = 3, r = 7:
+nL = 4, nR = 4, n = 8.
+Total de comparaciones y copias: Proporcional a 8 (se procesan exactamente 8 elementos).
+Resultado: A = [1, 2, 2, 3, 4, 5, 6, 7].
+Confirmación Teórica: El algoritmo MERGE es parte de MergeSort, y su complejidad lineal O(n) es consistente con la literatura (Cormen et al., 2022). No hay subproblemas recursivos, solo operaciones lineales.
+
+Por lo tanto, T(n) = O(n).
 
 
-Tarea: Análisis del Algoritmo de Fibonacci
+
+
+
+## Tarea: Análisis del Algoritmo de Fibonacci
 
 1. Codificación del Algoritmo de Fibonacci
 El algoritmo de Fibonacci calcula el n-ésimo número de la secuencia de Fibonacci, definida como F(n) = F(n-1) + F(n-2), con casos base F(0) = 0 y F(1) = 1. Se implementa una versión recursiva en Python por su simplicidad y relación directa con la recurrencia:
