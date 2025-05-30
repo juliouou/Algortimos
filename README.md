@@ -1,6 +1,6 @@
 ## Algoritmos
 
-Semana 1: Algoritmia Elemental
+### Semana 1: Algoritmia Elemental
 Objetivo: Conocer las características, componentes y notación de un algoritmo.Contenido:  
 
 Preliminares: Introducción a los algoritmos, notación, contradicción, inducción matemática y resolución de problemas.  
@@ -17,7 +17,7 @@ Tarea autónoma: Configurar un repositorio en GitHub y leer textos (Cormen et al
 
 
 
-Semana 2: Eficiencia de Algoritmos y Caso Medio
+### Semana 2: Eficiencia de Algoritmos y Caso Medio
 Objetivo: Profundizar en las características y notación de algoritmos, enfocándose en la eficiencia.Contenido:  
 
 Eficiencia de Algoritmos: Técnicas para medir el rendimiento.  
@@ -40,7 +40,7 @@ Lectura autónoma: Cormen et al. (2022): "Insertion Sort"; Brassard & Bratley (2
 
 
 
-Semana 4: Notación Asintótica (Orden de Crecimiento)
+### Semana 4: Notación Asintótica (Orden de Crecimiento)
 Objetivo: Comprender el costo en tiempo y espacio de algoritmos en diversos escenarios.Contenido:  
 
 Notación Asintótica: Introducción a la notación "Big O" para describir la complejidad.  
@@ -59,7 +59,7 @@ Tarea autónoma: Revisar y analizar casos de algoritmos.Propósito: Dotar a los 
 
 
 
-Semana 5: Caracterización de Tiempos de Ejecución
+### Semana 5: Caracterización de Tiempos de Ejecución
 Objetivo: Analizar costos en tiempo y espacio usando notaciones asintóticas avanzadas.Contenido:  
 
 Notaciones Omega y Theta: Cotas inferiores y ajustadas de complejidad.  
@@ -77,7 +77,7 @@ Lectura autónoma y resolución de problemas.Propósito: Profundizar en el anál
 
 
 
-Semana 6: Análisis de Algoritmos (Estructuras de Control)
+### Semana 6: Análisis de Algoritmos (Estructuras de Control)
 Objetivo: Analizar costo y complejidad de algoritmos usando modelos matemáticos.Contenido:  
 
 Estructuras de Control: Impacto de bucles y condicionales en la eficiencia.  
@@ -97,7 +97,7 @@ Preparación autónoma para evaluaciones.Propósito: Modelar y analizar la efici
 
 
 
-Semana 7: Análisis de Algoritmos (Caso Medio, Análisis Amortizado y Recurrencias)
+### Semana 7: Análisis de Algoritmos (Caso Medio, Análisis Amortizado y Recurrencias)
 Objetivo: Analizar costo y complejidad usando modelos matemáticos avanzados.Contenido:  
 
 Análisis del Caso Medio: Evaluación del rendimiento típico.  
@@ -114,6 +114,8 @@ Presentación en clase y desarrollo de ejercicios.
 Taller aplicando análisis del caso medio y recurrencias.  
 Lectura autónoma: Brassard & Bratley (2006): "Notación Asintótica".  
 Tarea: Desarrollar y actualizar casos en el repositorio de GitHub.Propósito: Proporcionar herramientas avanzadas para analizar algoritmos recursivos y amortizados.
+
+
 
 
 
