@@ -119,8 +119,83 @@ Tarea: Desarrollar y actualizar casos en el repositorio de GitHub.Propósito: Pr
 
 
 
+Tarea: Análisis del Algoritmo de Fibonacci
 
-Referencias:  
+1. Codificación del Algoritmo de Fibonacci
+El algoritmo de Fibonacci calcula el n-ésimo número de la secuencia de Fibonacci, definida como F(n) = F(n-1) + F(n-2), con casos base F(0) = 0 y F(1) = 1. Se implementa una versión recursiva en Python por su simplicidad y relación directa con la recurrencia:
+
+        def fibonacci(n):
+    if n <= 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+        
+Uso:
+# Ejemplo de uso
+n = 10
+print(f"Fibonacci({n}) = {fibonacci(n)}")  # Salida: Fibonacci(10) = 55
+
+2. Identificación de las Recurrencias
+Analizamos la complejidad temporal del algoritmo recursivo. Cada llamada a fibonacci(n) genera dos llamadas recursivas, excepto en los casos base. La recurrencia para el tiempo de ejecución T(n) es:
+Casos base:
+T(0) = O(1) (retorna 0 directamente).
+T(1) = O(1) (retorna 1 directamente).
+Caso recursivo:
+
+T(n) = T(n-1) + T(n-2) + O(1), donde O(1) representa la suma de los resultados de las llamadas recursivas.
+
+Esta recurrencia refleja el árbol de recursión, donde cada nivel genera dos subproblemas, más una operación constante para combinarlos.
+
+3. Obtención de la Ecuación General
+
+La recurrencia T(n) = T(n-1) + T(n-2) + O(1) es similar a la definición de la secuencia de Fibonacci. Para encontrar la ecuación general, analizamos la recurrencia sin el término constante (homogénea) y luego consideramos el impacto de O(1).
+
+La ecuación característica de T(n) = T(n-1) + T(n-2) es:
+
+r² - r - 1 = 0
+
+Resolviendo:
+Raíces: r = (1 ± √5)/2
+r₁ = φ = (1 + √5)/2 ≈ 1.618 (proporción áurea).
+r₂ = -1/φ ≈ -0.618.
+La solución general de la recurrencia homogénea es:
+T(n) = Aφⁿ + B(-1/φ)ⁿ
+Dado que |-1/φ| < 1, el término B(-1/φ)ⁿ se vuelve insignificante para n grande. El término O(1) en la recurrencia no homogénea agrega una constante que no afecta la cota superior dominante. Por lo tanto, la complejidad es:
+T(n) = O(φⁿ), donde φ ≈ 1.618.
+
+
+4. Demostración
+Demostramos que T(n) = O(φⁿ) analizando el árbol de recursión y la solución de la recurrencia:
+Árbol de Recursión:
+Cada llamada a fibonacci(n) genera dos llamadas: fibonacci(n-1) y fibonacci(n-2).
+El número de nodos en el árbol es aproximadamente el número de operaciones.
+El número total de nodos está relacionado con la secuencia de Fibonacci, ya que cada nivel i contribuye con nodos que crecen exponencialmente.
+Solución Matemática: Como se derivó, la recurrencia T(n) = T(n-1) + T(n-2) + O(1) tiene una solución dominada por φⁿ. Para verificar:
+La secuencia de Fibonacci F(n) ≈ φⁿ / √5 (aproximación para n grande).
+El número de operaciones en el árbol de recursión es aproximadamente 2F(n) (dado que cada llamada genera dos subllamadas), lo que confirma que T(n) = O(φⁿ).
+Ejemplo Empírico: Para n = 5:
+Llamadas: F(5) → F(4) + F(3) → [F(3) + F(2)] + [F(2) + F(1)] → ...
+Total de nodos ≈ 2F(5) ≈ 2*8 = 16 operaciones.
+Para n grande, el crecimiento es exponencial, confirmando T(n) = O(φⁿ).
+Por lo tanto, la complejidad temporal del algoritmo recursivo de Fibonacci es O(φⁿ).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Rferencias:  
 
 Cormen, T. H., Leiserson, C. E., Rivest, R. L., & Stein, C. (2022). Introduction to Algorithms (4th ed.). The MIT Press.  
 Brassard, G., & Bratley, P. (2006). Fundamentals of Algorithmics.
